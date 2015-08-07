@@ -185,14 +185,16 @@ console.log("Running Apos Bot!");
     }
 
     function isFood(blob, cell) {
-        if (!cell.isVirus() && compareSize(cell, blob, 1.30) || (cell.size <= 11)) {
+        /* Legion by name */
+        if (cell.name === blob.name && compareSize(blob, cell, 1.30) || !cell.isVirus() && compareSize(cell, blob, 1.30) || (cell.size <= 11)) {
             return true;
         }
         return false;
     }
 
     function isThreat(blob, cell) {
-        if (!cell.isVirus() && compareSize(blob, cell, 1.30)) {
+        /* Legion by name */
+        if (cell.name !== blob.name && !cell.isVirus() && compareSize(blob, cell, 1.30)) {
             return true;
         }
         return false;
